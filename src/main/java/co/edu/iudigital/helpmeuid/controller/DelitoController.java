@@ -1,6 +1,7 @@
 package co.edu.iudigital.helpmeuid.controller;
 
 import co.edu.iudigital.helpmeuid.dto.DelitoDTO;
+import co.edu.iudigital.helpmeuid.dto.RolDTO;
 import co.edu.iudigital.helpmeuid.service.iface.ICasoService;
 import co.edu.iudigital.helpmeuid.service.iface.IDelitoService;
 import co.edu.iudigital.helpmeuid.service.impl.DelitoServiceImpl;
@@ -22,6 +23,12 @@ public class DelitoController {
         return ResponseEntity
                 .ok()
                 .body(delitoService.findAll());
+    }
+    @GetMapping("/id_delito/{id}")
+    public ResponseEntity<DelitoDTO> findById(@PathVariable Long id){
+        return ResponseEntity
+                .ok()
+                .body(delitoService.findById(id));
     }
 
 

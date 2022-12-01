@@ -1,7 +1,9 @@
 package co.edu.iudigital.helpmeuid.service.impl;
 
 import co.edu.iudigital.helpmeuid.dto.DelitoDTO;
+import co.edu.iudigital.helpmeuid.dto.RolDTO;
 import co.edu.iudigital.helpmeuid.model.Delito;
+import co.edu.iudigital.helpmeuid.model.Role;
 import co.edu.iudigital.helpmeuid.repository.IDelitoRepository;
 import co.edu.iudigital.helpmeuid.service.iface.IDelitoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,16 +39,33 @@ public class DelitoServiceImpl implements IDelitoService {
 
     @Override
     public DelitoDTO findById(Long id) {
-        return null;
+        Optional<Delito> delito = delitoRepository.findById(id);
+        return DelitoDTO.builder()
+                .id(delito.get().getId())
+                .nombre(delito.get().getNombre())
+                .descripcion(delito.get().getDescripcion())
+                .build();
     }
+
 
     @Override
     public DelitoDTO save(DelitoDTO delitoDTO) {
-        return null;
+        Delito delito = new Delito();
+        delito.setNombre(delitoDTO.getNombre());
+        delito.setDescripcion(delito.getDescripcion());
+
+        Delito delitos = delitoRepository.save(delito);
+
+        return DelitoDTO.builder()
+                .id(delitos.getId())
+                .nombre(delitos.getNombre())
+                .descripcion(delitos.getDescripcion()).build();
     }
+
+
 
     @Override
     public void delete(Long id) {
-
+            delitoRepository.deleteById(id);
     }
 }
