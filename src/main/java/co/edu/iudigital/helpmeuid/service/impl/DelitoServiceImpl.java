@@ -9,6 +9,7 @@ import co.edu.iudigital.helpmeuid.service.iface.IDelitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,14 +53,16 @@ public class DelitoServiceImpl implements IDelitoService {
     public DelitoDTO save(DelitoDTO delitoDTO) {
         Delito delito = new Delito();
         delito.setNombre(delitoDTO.getNombre());
-        delito.setDescripcion(delito.getDescripcion());
+        delito.setDescripcion(delitoDTO.getDescripcion());
+
 
         Delito delitos = delitoRepository.save(delito);
 
         return DelitoDTO.builder()
                 .id(delitos.getId())
                 .nombre(delitos.getNombre())
-                .descripcion(delitos.getDescripcion()).build();
+                .descripcion(delitos.getDescripcion())
+                .build();
     }
 
 
@@ -68,4 +71,21 @@ public class DelitoServiceImpl implements IDelitoService {
     public void delete(Long id) {
             delitoRepository.deleteById(id);
     }
+
+
+    public DelitoDTO edit( DelitoDTO delitoDTO){
+        Optional<Delito> res = delitoRepository.findById(delitoDTO.getId());
+        Delito delito = res.get();
+        delito.setNombre(delitoDTO.getNombre());
+        delito.setDescripcion(delitoDTO.getDescripcion());
+        Delito delitos = delitoRepository.save(delito);
+
+        return DelitoDTO.builder()
+                .id(delitos.getId())
+                .nombre(delitos.getNombre())
+                .descripcion(delitos.getDescripcion())
+                .build();
+    }
+
+
 }

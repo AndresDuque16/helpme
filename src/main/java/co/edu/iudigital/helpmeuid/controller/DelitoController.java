@@ -31,6 +31,17 @@ public class DelitoController {
                 .body(delitoService.findById(id));
     }
 
+    @PostMapping("/crear_delito")
+    public DelitoDTO crearDelito (@RequestBody DelitoDTO delitoDTO ){
+        return delitoService.save(delitoDTO);
+    }
+
+    @PutMapping("/edit_delito")
+    public DelitoDTO editarDelito (@RequestBody DelitoDTO delitoDTO ){
+        return delitoService.edit(delitoDTO);
+    }
+
+
 
 
 }

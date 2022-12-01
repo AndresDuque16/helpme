@@ -18,5 +18,7 @@ public interface IDelitoService {
     // borrar un delito por ID
     public void delete(Long id);//TODO: Lanzar Excepcion personalizadas
 
+    public DelitoDTO edit(DelitoDTO delitoDTO);
+
 
 }

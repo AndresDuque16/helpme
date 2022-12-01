@@ -51,11 +51,7 @@ public class Usuario implements Serializable {
     String image;
 
     // hay una relación de muchos a muchos con usuarios
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "roles_usuarios",
-            joinColumns = {@JoinColumn(name = "usuarios_id")},
-            inverseJoinColumns = {@JoinColumn(name = "roles_id")}
-    )
-    List<Role> roles;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "roles_id")
+    Role role;
 }
