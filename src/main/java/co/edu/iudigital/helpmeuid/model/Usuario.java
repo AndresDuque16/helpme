@@ -8,7 +8,6 @@ import javax.persistence.*;// no es buena práctica
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 

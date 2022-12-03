@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "d1e3f493-9ba3-4853-b91f-7c50a153bb1d",
+		"name": "helmeIud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17434537"
+	},
+	"item": [
+		{
+			"name": "listar delitos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/listar_delitos",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"listar_delitos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/listar_roles",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"listar_roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar por id rol",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/borrar_role/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"borrar_role",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar rol id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/id_role/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"id_role",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear role",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombre\": \"Usuario\",\r\n   \"descripcion\": \"encargado de ingresar los casos que reportan en el aplicativo\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/crear-role",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"crear-role"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

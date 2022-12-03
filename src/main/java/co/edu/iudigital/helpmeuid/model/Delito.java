@@ -26,7 +26,7 @@ public class Delito {
     String descripcion;
 
     // si quiero llevar un registro de quien creó este delito
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuarios_id")
-    Usuario usuario;
+    Usuario usuario;*/
 }

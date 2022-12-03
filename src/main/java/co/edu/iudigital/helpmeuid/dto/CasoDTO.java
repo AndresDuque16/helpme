@@ -31,9 +31,9 @@ public class CasoDTO {
 
     String rmiUrl;
 
-    Delito delito;
+    DelitoDTO delito;
 
-    Usuario usuario;
+    UsuarioDTO usuario;
 }
 
 

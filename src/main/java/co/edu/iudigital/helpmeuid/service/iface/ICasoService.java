@@ -19,4 +19,6 @@ public interface ICasoService {
     // consultar caso por ID
     //TODO: Lanzar Excepcion personalizadas
     public CasoDTO findById(Long id);
+
+    public void deleteById(Long id);
 }

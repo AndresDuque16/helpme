@@ -42,7 +42,11 @@ public class DelitoController {
     }
 
 
-
+    @DeleteMapping("/borrar_delito/{id}")
+    public String delete(@PathVariable Long id){
+        delitoService.delete(id);
+        return "Se elimino el delito con id: " + id;
+    }
 
 }
 
